@@ -1,3 +1,21 @@
+## Description
+
+This script is designed to extract questions and answers from a table in a Word document (.docx) and convert them into an XML format compatible with Moodle. It utilizes the `python-docx` library for handling Word documents and `pandas` for data processing.
+
+## Installation
+
+Before using the script, ensure you have the required libraries installed. You can install them using pip:
+
+- `pip install python-docx pandas`
+
+## Usage
+
+1. **Prepare the Word Document**: Ensure your Word document contains a table where each group of 5 rows corresponds to one question. The first row should contain the question number and text, while the next 4 rows should contain the answer options.
+
+2. **Set the File Path**: In the script, change the line `R"path\to\docx\file"` to the path of your .docx file.
+
+3. **Run the Script**: Execute the script in your Python environment. It will extract data from the table and create a `questions.xml` file in the current directory.
+
 ## Table Structure
 
 The table in the Word document should have the following structure:
