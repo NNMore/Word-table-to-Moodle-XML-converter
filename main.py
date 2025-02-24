@@ -33,8 +33,13 @@ for i in range(0, row_count, 5):  # Чтение по 5 строк (5 строк
             answer_text = extract_text(answer_row.cells[2])
             is_bold = any(run.bold for run in answer_row.cells[2].paragraphs[0].runs)
             correct_indicator = '*' if is_bold else ''
-            # Удаление буквы, точки и пробела перед текстом ответа
-            answer_text = answer_text.split('.', 1)[1].strip() if '.' in answer_text else answer_text
+            
+            # Удаление обозначений перед текстом ответа (буква, точка, запятая и пробел)
+            if '.' in answer_text:
+                answer_text = answer_text.split('.', 1)[1].strip()
+            elif ',' in answer_text:
+                answer_text = answer_text.split(',', 1)[1].strip()
+
             answers.append(f"{correct_indicator}{answer_text}")
 
         formatted_answers_str = '\n'.join(answers)
